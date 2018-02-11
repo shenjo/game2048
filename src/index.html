@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="./assets/js/game-2048.js"></script>
+<script>
+    let gameDiv = document.getElementById('app');
+    let gameArr = initGivenLengthArr(4 * 4);
+    gameArr[0]=2;gameArr[1]=2;
+    if(gameDiv.firstChild){
+        gameDiv.replaceChild(generateUI(gameArr),gameDiv.firstChild)
+    }else{
+        gameDiv.appendChild(generateUI(gameArr))
+    }
+    document.onkeyup = event => {
+        let keyCode = event.keyCode;
+        if([37,38,39,40].indexOf(keyCode) >=0){
+            if (keyCode === 37) {
+                gameArr = leftMove(gameArr);
+            }else if(keyCode===38){
+                gameArr = upMove(gameArr);
+            }else if(keyCode===39){
+                gameArr = rightMove(gameArr);
+            }else if(keyCode===40){
+                gameArr = downMove(gameArr);
+            }
+            gameDiv.replaceChild(generateUI(gameArr),gameDiv.firstChild)
+            generateOneBlock(gameArr)
+            gameDiv.replaceChild(generateUI(gameArr),gameDiv.firstChild)
+
+        }
+
+    };
+
+    function generateUI(gameArr) {
+       let div = document.createElement('div');
+       for(let i =0;i<4;i++){
+           let rowDiv = document.createElement('div');
+           for(let j =0;j<4;j++){
+               let colDiv = document.createElement('span')
+               colDiv.innerHTML = gameArr[i*4+j]+'    ';
+               rowDiv.appendChild(colDiv)
+           }
+           div.appendChild(rowDiv);
+       }
+       return div;
+    }
+
+</script>
+</body>
+</html>

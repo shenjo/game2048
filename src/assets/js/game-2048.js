@@ -149,21 +149,18 @@ const completionArr = (givenArr, length) => {
     return givenArr.concat(initGivenLengthArr(length - givenArr.length));
 };
 
-export default {
-    getRange,
-    initGivenLengthArr,
-    getRowArr,
-    getColArr,
-    hasNeighborSameValue,
-    canLeftRightMove,
-    canUpDownMove,
-    combineArr,
-    completionArr,
-    leftMove,
-    rightMove,
-    upMove,
-    downMove
+const generateOneBlock = givenArr =>{
+    let indexs = [];
+    givenArr.forEach((value, index) => {
+        if (value === 0) {
+            indexs.push(index)
+        }
+    });
+    if(indexs.length>0){
+     givenArr[Math.floor(Math.random()*indexs.length)] = 2;
+    }
 }
+
 
 
 
