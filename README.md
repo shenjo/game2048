@@ -6,7 +6,7 @@
 $ npm install 
 ```
 
-## 2. run index.html
+## 2. run index.html (需要把game-2048.js的export部分注释掉)
 
 
 ## 3. npm test (using ava)

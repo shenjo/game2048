@@ -149,16 +149,36 @@ const completionArr = (givenArr, length) => {
     return givenArr.concat(initGivenLengthArr(length - givenArr.length));
 };
 
-const generateOneBlock = givenArr =>{
+const getNoValueIndexs = givenArr =>{
     let indexs = [];
     givenArr.forEach((value, index) => {
         if (value === 0) {
             indexs.push(index)
         }
     });
-    if(indexs.length>0){
-     givenArr[Math.floor(Math.random()*indexs.length)] = 2;
-    }
+    return indexs;
+};
+
+const getRandomIndex = givenArr=>{
+    return givenArr[Math.floor(Math.random()*givenArr.length)];
+}
+
+export default {
+    getRange,
+    initGivenLengthArr,
+    getRowArr,
+    getColArr,
+    hasNeighborSameValue,
+    canLeftRightMove,
+    canUpDownMove,
+    combineArr,
+    completionArr,
+    leftMove,
+    rightMove,
+    upMove,
+    downMove,
+    getNoValueIndexs,
+    getRandomIndex
 }
 
 

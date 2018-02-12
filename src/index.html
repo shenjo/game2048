@@ -28,8 +28,8 @@
             }else if(keyCode===40){
                 gameArr = downMove(gameArr);
             }
-            gameDiv.replaceChild(generateUI(gameArr),gameDiv.firstChild)
-            generateOneBlock(gameArr)
+            gameDiv.replaceChild(generateUI(gameArr),gameDiv.firstChild);
+            gameArr[getRandomIndex(getNoValueIndexs(gameArr))] = 2;
             gameDiv.replaceChild(generateUI(gameArr),gameDiv.firstChild)
 
         }
@@ -41,7 +41,7 @@
        for(let i =0;i<4;i++){
            let rowDiv = document.createElement('div');
            for(let j =0;j<4;j++){
-               let colDiv = document.createElement('span')
+               let colDiv = document.createElement('span');
                colDiv.innerHTML = gameArr[i*4+j]+'    ';
                rowDiv.appendChild(colDiv)
            }

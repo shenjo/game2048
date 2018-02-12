@@ -155,7 +155,7 @@ test('up Move test', t => {
     //  9 10 11 12
     // 13 14 15 16
     t.deepEqual(fns.upMove(arr), arr);
-    arr = [1, 2, 3, 4, 1, 6, 7, 8, 2, 10, 11, 12,2, 14, 15, 16];
+    arr = [1, 2, 3, 4, 1, 6, 7, 8, 2, 10, 11, 12, 2, 14, 15, 16];
     //  1 2  3  4
     //  1 6  7  8
     //  2 10 11 12
@@ -170,10 +170,25 @@ test('down Move test', t => {
     //  9 10 11 12
     // 13 14 15 16
     t.deepEqual(fns.downMove(arr), arr);
-    arr = [1, 2, 3, 4, 1, 6, 7, 8, 2, 10, 11, 12,2, 14, 15, 16];
+    arr = [1, 2, 3, 4, 1, 6, 7, 8, 2, 10, 11, 12, 2, 14, 15, 16];
     //  1 2  3  4
     //  1 6  7  8
     //  2 10 11 12
     // 2 14 15 16
     t.deepEqual(fns.downMove(arr), [0, 2, 3, 4, 0, 6, 7, 8, 2, 10, 11, 12, 4, 14, 15, 16]);
+});
+
+test('getNoValueIndexs', t => {
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+    t.true(fns.getNoValueIndexs(arr).length === 0);
+    arr = [1, 2, 3, 4, 0, 6, 7, 0, 2, 10, 11, 12, 2, 14, 15, 16];
+    t.true(fns.getNoValueIndexs(arr).length === 2);
+    t.deepEqual(fns.getNoValueIndexs(arr), [4, 7])
+});
+
+test('getRandomIndex', t => {
+    for(let i=0;i<100;i++){
+        const test = fns.getRandomIndex([5, 10, 15])
+        t.true(test === 5 || test === 10 || test === 15)
+    }
 });
