@@ -1,5 +1,5 @@
 import test from 'ava'
-import * as types from '../src/assets/js/game-2048'
+import * as types from '../src/assets/js/game-2048-core'
 
 const fns = types.default;
 const GAME_SIZE = 4;

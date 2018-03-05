@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="./assets/css/game-2048.css">
 </head>
 <body>
+<span id="rectTemplte"></span>
 <div id="app"></div>
-<script src="./assets/js/game-2048.js"></script>
+<script src="assets/js/game-2048-core.js"></script>
+<script src="assets/js/game-2048-other.js"></script>
 <script>
     let gameDiv = document.getElementById('app');
     let gameArr = initGivenLengthArr(4 * 4);
@@ -41,8 +44,9 @@
        for(let i =0;i<4;i++){
            let rowDiv = document.createElement('div');
            for(let j =0;j<4;j++){
-               let colDiv = document.createElement('span');
-               colDiv.innerHTML = gameArr[i*4+j]+'    ';
+               // let colDiv = document.createElement('span');
+               let colDiv = generateOneBlock('rectTemplte',gameArr[i*4+j]);
+               // colDiv.innerHTML = gameArr[i*4+j]+'    ';
                rowDiv.appendChild(colDiv)
            }
            div.appendChild(rowDiv);

@@ -1,5 +1,5 @@
 const TOTAL_ROW = 4, TOTAL_COL = 4;
-const curry = (fn) => {
+const curry = fn => {
     const arity = fn.length;
     let curriedFn = (...args) => {
         if (args.length >= arity) {
